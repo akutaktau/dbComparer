@@ -5,26 +5,31 @@
  * Author: Jasdy Syarman Mohd Saari (https://github.com/akutaktau)
  * License: MIT License
  *
- * Remarks:
- * - This script is a command-line PHP tool for comparing a specific column's values between two MySQL databases for a given table and key column.
- * - It interactively prompts the user for connection details for both databases, the table name, the column to compare, the key column, and an optional output file for mismatches.
- * - The script connects to both databases, fetches all rows from the source, and checks for missing or mismatched values in the target database.
- * - Mismatches or missing rows are printed to the console and optionally saved to a file.
+ * Description:
+ * This script is a command-line PHP tool for comparing MySQL databases. It allows you to:
+ *   - Compare the schema (structure) of all tables or a single table between two databases.
+ *   - Compare the data of a specific column in a specific table between two databases.
+ *
+ * Features:
+ * - Interactive prompts for connection details, operation type, and output file.
+ * - Schema comparison checks for missing columns and type mismatches, and outputs results to console and optionally to a file.
+ * - Data comparison checks for missing or mismatched values in a specified column, and outputs results to console and optionally to a file.
  *
  * How to use:
  * 1. Run the script in a terminal: php database_comparer.php
- * 2. Enter the required database connection details and table/column info when prompted.
- * 3. Optionally, provide a file path to save mismatches, or leave blank to skip file output.
- * 4. Review the output in the terminal and/or the specified file.
+ * 2. Enter the required database connection details when prompted.
+ * 3. Choose the operation: compare schema (all tables or single table) or compare data.
+ * 4. For schema comparison, optionally provide a file path to save results.
+ * 5. For data comparison, provide table, column, key column, and optionally an output file.
+ * 6. Review the output in the terminal and/or the specified file.
  *
  * Limitations:
  * - Only supports MySQL databases via PDO.
- * - Compares a single table and a single column at a time.
- * - Assumes the key column uniquely identifies rows.
+ * - Data comparison supports a single table and a single column at a time.
+ * - Assumes the key column uniquely identifies rows for data comparison.
  * - Does not handle large tables efficiently (loads all source rows, compares one-by-one).
  * - No support for complex data types, composite keys, or advanced comparison logic.
  * - No SSL or advanced connection options.
- * - No support for comparing multiple columns or tables in one run.
  * - Error handling is basic; connection or query errors will halt execution.
  */
 
